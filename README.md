@@ -5,6 +5,7 @@ This is a simple web application that converts a PDF file into an audiobook. It 
 - Upload PDF: Users can upload a PDF file through a simple web interface.
 - Convert to Audio: The application extracts text from the PDF and converts it into an MP3 audio file.
 - Download Audio: Once converted, the user can download the generated audiobook.
+- Cleanup Support: Once converted, uploaded pdf files automatically get removed from system.
 
 ## Installation
 - Prerequisites: Make sure you have Python 3.x installed.
@@ -14,7 +15,7 @@ This is a simple web application that converts a PDF file into an audiobook. It 
     git clone https://github.com/Kartik-7813/pdf-to-audiobook.git
     cd pdf-to-audiobook
 
-  2. Create a virtual environment (optional but recommended):
+  2. Create a virtual environment (Optional but recommended):
      - For Linux: 
        python -m venv venv
        source venv/bin/activate
@@ -30,3 +31,7 @@ This is a simple web application that converts a PDF file into an audiobook. It 
 - To run the application, execute the following command in your terminal:
 flask run
 - Open your web browser and navigate to http://127.0.0.1:5000 to access the application.
+
+## Screenshots
+![upload_file](files://C:/Users/jzhang/Desktop/Isolated.png)
+![converted_file](files://C:/Users/jzhang/Desktop/Isolated.png)
