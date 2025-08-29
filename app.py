@@ -11,7 +11,7 @@ AUDIO_FOLDER = 'audio'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
 
-# Create folders if they don't exist
+# Creating folders if they don't exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(AUDIO_FOLDER, exist_ok=True)
 
@@ -52,7 +52,6 @@ def upload_file():
             def cleanup(response):
                 try:
                     os.remove(pdf_path)
-                    # Audio file cleanup after download can be handled separately
                 except Exception:
                     pass
                 return response
@@ -76,4 +75,5 @@ def download_file(filename):
     return send_from_directory(app.config['AUDIO_FOLDER'], filename, as_attachment=True)
 
 if __name__ == '__main__':
+
     app.run(debug=True)
