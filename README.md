@@ -11,7 +11,7 @@ This is a simple web application that converts a PDF file into an audiobook. It 
 
 - Steps
   1. Clone the repository:
-    git clone https://github.com/yourusername/pdf-to-audiobook.git
+    git clone https://github.com/Kartik-7813/pdf-to-audiobook.git
     cd pdf-to-audiobook
 
   2. Create a virtual environment (optional but recommended):
