@@ -33,5 +33,5 @@ flask run
 - Open your web browser and navigate to http://127.0.0.1:5000 to access the application.
 
 ## Screenshots
-![upload_file](files://C:/Users/jzhang/Desktop/Isolated.png)
-![converted_file](files://C:/Users/jzhang/Desktop/Isolated.png)
+![upload_file](images/upload_file.png)
+![converted_file](images/converted_file.png)
