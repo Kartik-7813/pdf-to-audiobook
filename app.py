@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, send_from_directory, after_this_request
 from werkzeug.utils import secure_filename
 import os
-import PyPDF2
+import fitz
 from gtts import gTTS
 import uuid
 
@@ -11,7 +11,7 @@ AUDIO_FOLDER = 'audio'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
 
-# Creating folders if they don't exist
+# Create folders if they don't exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(AUDIO_FOLDER, exist_ok=True)
 
@@ -33,12 +33,13 @@ def upload_file():
 
         # Extract text from PDF
         try:
-            with open(pdf_path, 'rb') as f:
-                pdf = PyPDF2.PdfReader(f)
-                text = ''
-                for page in pdf.pages:
-                    text += page.extract_text() or ''
-                if not text.strip():
+            pdf = fitz.open(pdf_path)
+            text = ''
+            for page in pdf:
+                text += page.get_text()
+            pdf.close()
+            
+            if not text.strip():
                     return 'No text could be extracted from the PDF', 400
 
             # Convert text to audio
@@ -52,6 +53,7 @@ def upload_file():
             def cleanup(response):
                 try:
                     os.remove(pdf_path)
+                    # Audio file cleanup after download can be handled separately
                 except Exception:
                     pass
                 return response
@@ -75,5 +77,4 @@ def download_file(filename):
     return send_from_directory(app.config['AUDIO_FOLDER'], filename, as_attachment=True)
 
 if __name__ == '__main__':
-
     app.run(debug=True)
