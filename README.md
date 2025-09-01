@@ -1,5 +1,5 @@
 # PDF to Audiobook Converter
-This is a simple web application that converts a PDF file into an audiobook. It uses Flask for the web framework, PyPDF2 to extract text from the PDF, and gTTS (Google Text-to-Speech) to generate the audio.
+This is a simple web application that converts a PDF file into an audiobook. It uses Flask for the web framework, PyMuPDF to extract text from the PDF, and gTTS (Google Text-to-Speech) to generate the audio.
 
 ## Features
 - Upload PDF: Users can upload a PDF file through a simple web interface.
